@@ -12,12 +12,12 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping(value="email")
 public class MailingController {
     @Autowired
-    MailingService maillingService;
+    MailingService mailingService;
 
 
     @PostMapping(value = "sendSimpleMail")                                                   //send Simple Mail
     public String sendSimpleMail(@RequestBody EmailDetails emailDetails){
-        String mail=maillingService.sendSimpleMail(emailDetails);
+        String mail=mailingService.sendSimpleMail(emailDetails);
         return  mail;
     }
 }

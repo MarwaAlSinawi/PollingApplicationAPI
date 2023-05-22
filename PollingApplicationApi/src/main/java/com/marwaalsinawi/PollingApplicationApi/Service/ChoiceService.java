@@ -10,6 +10,8 @@ import com.marwaalsinawi.PollingApplicationApi.RequestObject.NewOption;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class ChoiceService {
     @Autowired
@@ -19,13 +21,19 @@ public class ChoiceService {
     ChoiceRepository choiceRepository;
 
     public void createChoice(NewChoice choiceInfo) {
-        Choice choice= new Choice();
+        Choice choice = new Choice();
         choice.setChoice(choiceInfo.getChoice());
-        Long id=pollRepository.getIdByQuestion(choiceInfo.getQuestion());
-        Poll poll =pollRepository.findById(id).get();
+        Long id = pollRepository.getIdByQuestion(choiceInfo.getQuestion());
+        Poll poll = pollRepository.findById(id).get();
         choice.setPoll(poll);
         choiceRepository.save(choice);
 
-
     }
-}
+        public List<Choice> getAllChoice(){
+            List<Choice>getAllChoice=choiceRepository.getAllChoice();
+         return getAllChoice;
+
+
+
+        }
+    }
