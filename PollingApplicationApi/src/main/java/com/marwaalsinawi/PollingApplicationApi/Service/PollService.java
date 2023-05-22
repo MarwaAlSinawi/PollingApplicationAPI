@@ -42,4 +42,12 @@ public class PollService {
         pollRepository.save(poll);
 
     }
+
+    public void sendEmail(){
+
+            }
+
+
+
+
 }
