@@ -36,14 +36,14 @@ public class ReportServer {
         for (Choice choice : choiceList) {
             Integer choiceId = choice.getId();
             String choiceName=choice.getChoice();
-            TotalNumberOfPolls countOfPolls= new TotalNumberOfPolls(choiceId,choiceName);
+            TotalNumberOfPolls countOfPolls= new TotalNumberOfPolls(choiceName,choiceId);
             totalNumberOfPolls.add(countOfPolls);
 
         }
 
         File file = ResourceUtils.getFile("classpath:TotalNumberOfPolls.jrxml");//file object
         JasperReport jasperReport = JasperCompileManager.compileReport(file.getAbsolutePath());
-        JRBeanCollectionDataSource dataSource = new JRBeanCollectionDataSource(TotalNumberOfPolls);
+        JRBeanCollectionDataSource dataSource = new JRBeanCollectionDataSource(totalNumberOfPolls);
         Map<String, Object> paramters = new HashMap<>();
         paramters.put("CreatedBy", "Marwa  ");
         JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, paramters, dataSource);
