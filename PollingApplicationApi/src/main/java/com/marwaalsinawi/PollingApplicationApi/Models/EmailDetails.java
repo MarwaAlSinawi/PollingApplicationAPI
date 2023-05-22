@@ -1,16 +1,17 @@
-package com.marwaalsinawi.PollingApplicationApi.Mailing;
+package com.marwaalsinawi.PollingApplicationApi.Models;
 
 import lombok.*;
 
 import java.util.List;
-@Getter
-@Setter
 @Data
-@NoArgsConstructor
+@Setter
+@Getter
 @AllArgsConstructor
-public class MailingModel {
+@NoArgsConstructor
+public class EmailDetails {
     private List<String> recipient;
     private String msgBody;
     private String subject;
     private String attachment;
+
 }
